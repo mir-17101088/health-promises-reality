@@ -1,0 +1,642 @@
+[
+    {
+        "district": "Sylhet",
+        "division": "Sylhet",
+        "suspected": 6228,
+        "confirmed": 372,
+        "deaths": 65,
+        "hospitalized": 5866,
+        "lat": 24.8949,
+        "lng": 91.8687
+    },
+    {
+        "district": "Feni",
+        "division": "Chattogram",
+        "suspected": 1017,
+        "confirmed": 18,
+        "deaths": 0,
+        "hospitalized": 1018,
+        "lat": 23.0159,
+        "lng": 91.3976
+    },
+    {
+        "district": "Kushtia",
+        "division": "Khulna",
+        "suspected": 2747,
+        "confirmed": 24,
+        "deaths": 12,
+        "hospitalized": 2747,
+        "lat": 23.9013,
+        "lng": 89.1201
+    },
+    {
+        "district": "Bagerhat",
+        "division": "Khulna",
+        "suspected": 713,
+        "confirmed": 198,
+        "deaths": 0,
+        "hospitalized": 674,
+        "lat": 22.6512,
+        "lng": 89.7851
+    },
+    {
+        "district": "Barisal",
+        "division": "Barisal",
+        "suspected": 7312,
+        "confirmed": 144,
+        "deaths": 56,
+        "hospitalized": 7176,
+        "lat": 22.701,
+        "lng": 90.3535
+    },
+    {
+        "district": "Meherpur",
+        "division": "Khulna",
+        "suspected": 651,
+        "confirmed": 10,
+        "deaths": 1,
+        "hospitalized": 542,
+        "lat": 23.7622,
+        "lng": 88.6318
+    },
+    {
+        "district": "Sirajganj",
+        "division": "Rajshahi",
+        "suspected": 2127,
+        "confirmed": 412,
+        "deaths": 0,
+        "hospitalized": 2120,
+        "lat": 24.4534,
+        "lng": 89.7
+    },
+    {
+        "district": "Chandpur",
+        "division": "Chattogram",
+        "suspected": 2500,
+        "confirmed": 328,
+        "deaths": 7,
+        "hospitalized": 2314,
+        "lat": 23.2513,
+        "lng": 90.8518
+    },
+    {
+        "district": "Lalmonirhat",
+        "division": "Rangpur",
+        "suspected": 175,
+        "confirmed": 20,
+        "deaths": 0,
+        "hospitalized": 143,
+        "lat": 25.9165,
+        "lng": 89.4447
+    },
+    {
+        "district": "Narayanganj",
+        "division": "Dhaka",
+        "suspected": 198,
+        "confirmed": 0,
+        "deaths": 0,
+        "hospitalized": 160,
+        "lat": 23.6238,
+        "lng": 90.5
+    },
+    {
+        "district": "Jhenaidah",
+        "division": "Khulna",
+        "suspected": 928,
+        "confirmed": 17,
+        "deaths": 4,
+        "hospitalized": 920,
+        "lat": 23.5448,
+        "lng": 89.1539
+    },
+    {
+        "district": "Dinajpur",
+        "division": "Rangpur",
+        "suspected": 593,
+        "confirmed": 112,
+        "deaths": 3,
+        "hospitalized": 267,
+        "lat": 25.6279,
+        "lng": 88.6332
+    },
+    {
+        "district": "Khulna",
+        "division": "Khulna",
+        "suspected": 1909,
+        "confirmed": 47,
+        "deaths": 21,
+        "hospitalized": 1909,
+        "lat": 22.8456,
+        "lng": 89.5403
+    },
+    {
+        "district": "Brahmanbaria",
+        "division": "Chattogram",
+        "suspected": 584,
+        "confirmed": 271,
+        "deaths": 2,
+        "hospitalized": 584,
+        "lat": 23.9608,
+        "lng": 91.1115
+    },
+    {
+        "district": "Chapainawabganj",
+        "division": "Rajshahi",
+        "suspected": 1649,
+        "confirmed": 41,
+        "deaths": 6,
+        "hospitalized": 1649,
+        "lat": 24.5965,
+        "lng": 88.2776
+    },
+    {
+        "district": "Rajshahi",
+        "division": "Rajshahi",
+        "suspected": 1791,
+        "confirmed": 549,
+        "deaths": 58,
+        "hospitalized": 1137,
+        "lat": 24.3636,
+        "lng": 88.6241
+    },
+    {
+        "district": "Cumilla",
+        "division": "Chattogram",
+        "suspected": 3842,
+        "confirmed": 759,
+        "deaths": 16,
+        "hospitalized": 3418,
+        "lat": 23.4607,
+        "lng": 91.1809
+    },
+    {
+        "district": "Chattogram",
+        "division": "Chattogram",
+        "suspected": 7645,
+        "confirmed": 744,
+        "deaths": 18,
+        "hospitalized": 7613,
+        "lat": 22.3569,
+        "lng": 91.7832
+    },
+    {
+        "district": "Cox's Bazar",
+        "division": "Chattogram",
+        "suspected": 6349,
+        "confirmed": 231,
+        "deaths": 20,
+        "hospitalized": 6327,
+        "lat": 21.4272,
+        "lng": 92.0058
+    },
+    {
+        "district": "Noakhali",
+        "division": "Chattogram",
+        "suspected": 6109,
+        "confirmed": 158,
+        "deaths": 8,
+        "hospitalized": 6896,
+        "lat": 22.8724,
+        "lng": 91.0973
+    },
+    {
+        "district": "Barguna",
+        "division": "Barisal",
+        "suspected": 1760,
+        "confirmed": 82,
+        "deaths": 6,
+        "hospitalized": 1501,
+        "lat": 22.151,
+        "lng": 90.1266
+    },
+    {
+        "district": "Bogura",
+        "division": "Rajshahi",
+        "suspected": 1124,
+        "confirmed": 216,
+        "deaths": 23,
+        "hospitalized": 1183,
+        "lat": 24.8465,
+        "lng": 89.3773
+    },
+    {
+        "district": "Bhola",
+        "division": "Barisal",
+        "suspected": 2263,
+        "confirmed": 174,
+        "deaths": 7,
+        "hospitalized": 2215,
+        "lat": 22.6859,
+        "lng": 90.6482
+    },
+    {
+        "district": "Kishoreganj",
+        "division": "Dhaka",
+        "suspected": 2481,
+        "confirmed": 29,
+        "deaths": 2,
+        "hospitalized": 2276,
+        "lat": 24.4449,
+        "lng": 90.7766
+    },
+    {
+        "district": "Moulvibazar",
+        "division": "Sylhet",
+        "suspected": 1665,
+        "confirmed": 150,
+        "deaths": 14,
+        "hospitalized": 1565,
+        "lat": 24.483,
+        "lng": 91.7774
+    },
+    {
+        "district": "Chuadanga",
+        "division": "Khulna",
+        "suspected": 542,
+        "confirmed": 0,
+        "deaths": 1,
+        "hospitalized": 535,
+        "lat": 23.6402,
+        "lng": 88.841
+    },
+    {
+        "district": "Madaripur",
+        "division": "Dhaka",
+        "suspected": 1642,
+        "confirmed": 249,
+        "deaths": 2,
+        "hospitalized": 1570,
+        "lat": 23.1641,
+        "lng": 90.1978
+    },
+    {
+        "district": "Tangail",
+        "division": "Dhaka",
+        "suspected": 3215,
+        "confirmed": 214,
+        "deaths": 9,
+        "hospitalized": 2906,
+        "lat": 24.2513,
+        "lng": 89.9164
+    },
+    {
+        "district": "Faridpur",
+        "division": "Dhaka",
+        "suspected": 5573,
+        "confirmed": 10,
+        "deaths": 21,
+        "hospitalized": 5403,
+        "lat": 23.607,
+        "lng": 89.842
+    },
+    {
+        "district": "Pabna",
+        "division": "Rajshahi",
+        "suspected": 1720,
+        "confirmed": 157,
+        "deaths": 8,
+        "hospitalized": 1719,
+        "lat": 24.0064,
+        "lng": 89.2372
+    },
+    {
+        "district": "Netrokona",
+        "division": "Mymensingh",
+        "suspected": 2144,
+        "confirmed": 29,
+        "deaths": 5,
+        "hospitalized": 1992,
+        "lat": 24.8704,
+        "lng": 90.7279
+    },
+    {
+        "district": "Jashore",
+        "division": "Khulna",
+        "suspected": 866,
+        "confirmed": 58,
+        "deaths": 0,
+        "hospitalized": 665,
+        "lat": 23.1665,
+        "lng": 89.2094
+    },
+    {
+        "district": "Jhalakathi",
+        "division": "Barisal",
+        "suspected": 767,
+        "confirmed": 115,
+        "deaths": 2,
+        "hospitalized": 657,
+        "lat": 22.6406,
+        "lng": 90.1987
+    },
+    {
+        "district": "Naogaon",
+        "division": "Rajshahi",
+        "suspected": 531,
+        "confirmed": 24,
+        "deaths": 1,
+        "hospitalized": 303,
+        "lat": 24.7936,
+        "lng": 88.9318
+    },
+    {
+        "district": "Rangamati",
+        "division": "Chattogram",
+        "suspected": 45,
+        "confirmed": 2,
+        "deaths": 0,
+        "hospitalized": 13,
+        "lat": 22.7324,
+        "lng": 92.2985
+    },
+    {
+        "district": "Jamalpur",
+        "division": "Mymensingh",
+        "suspected": 1209,
+        "confirmed": 31,
+        "deaths": 1,
+        "hospitalized": 1189,
+        "lat": 24.9375,
+        "lng": 89.9372
+    },
+    {
+        "district": "Thakurgaon",
+        "division": "Rangpur",
+        "suspected": 465,
+        "confirmed": 66,
+        "deaths": 3,
+        "hospitalized": 375,
+        "lat": 26.0336,
+        "lng": 88.4616
+    },
+    {
+        "district": "Dhaka",
+        "division": "Dhaka",
+        "suspected": 49444,
+        "confirmed": 11102,
+        "deaths": 425,
+        "hospitalized": 34709,
+        "lat": 23.8103,
+        "lng": 90.4125
+    },
+    {
+        "district": "Bandarban",
+        "division": "Chattogram",
+        "suspected": 1801,
+        "confirmed": 30,
+        "deaths": 6,
+        "hospitalized": 1732,
+        "lat": 22.1953,
+        "lng": 92.2184
+    },
+    {
+        "district": "Lakshmipur",
+        "division": "Chattogram",
+        "suspected": 3578,
+        "confirmed": 141,
+        "deaths": 2,
+        "hospitalized": 3570,
+        "lat": 22.9447,
+        "lng": 90.8282
+    },
+    {
+        "district": "Natore",
+        "division": "Rajshahi",
+        "suspected": 752,
+        "confirmed": 14,
+        "deaths": 0,
+        "hospitalized": 535,
+        "lat": 24.4206,
+        "lng": 89
+    },
+    {
+        "district": "Shariatpur",
+        "division": "Dhaka",
+        "suspected": 725,
+        "confirmed": 102,
+        "deaths": 3,
+        "hospitalized": 601,
+        "lat": 23.2423,
+        "lng": 90.4348
+    },
+    {
+        "district": "Panchagarh",
+        "division": "Rangpur",
+        "suspected": 74,
+        "confirmed": 3,
+        "deaths": 0,
+        "hospitalized": 20,
+        "lat": 26.3411,
+        "lng": 88.5542
+    },
+    {
+        "district": "Sunamganj",
+        "division": "Sylhet",
+        "suspected": 3998,
+        "confirmed": 357,
+        "deaths": 60,
+        "hospitalized": 3832,
+        "lat": 25.0658,
+        "lng": 91.395
+    },
+    {
+        "district": "Sherpur",
+        "division": "Mymensingh",
+        "suspected": 486,
+        "confirmed": 16,
+        "deaths": 1,
+        "hospitalized": 419,
+        "lat": 25.0204,
+        "lng": 90.0153
+    },
+    {
+        "district": "Manikganj",
+        "division": "Dhaka",
+        "suspected": 1697,
+        "confirmed": 45,
+        "deaths": 2,
+        "hospitalized": 1581,
+        "lat": 23.8617,
+        "lng": 90.0003
+    },
+    {
+        "district": "Khagrachhari",
+        "division": "Chattogram",
+        "suspected": 164,
+        "confirmed": 29,
+        "deaths": 0,
+        "hospitalized": 142,
+        "lat": 23.1322,
+        "lng": 91.949
+    },
+    {
+        "district": "Gopalganj",
+        "division": "Dhaka",
+        "suspected": 2819,
+        "confirmed": 54,
+        "deaths": 6,
+        "hospitalized": 2677,
+        "lat": 23.005,
+        "lng": 89.8266
+    },
+    {
+        "district": "Narsingdi",
+        "division": "Dhaka",
+        "suspected": 1789,
+        "confirmed": 307,
+        "deaths": 1,
+        "hospitalized": 1708,
+        "lat": 23.9322,
+        "lng": 90.7151
+    },
+    {
+        "district": "Kurigram",
+        "division": "Rangpur",
+        "suspected": 480,
+        "confirmed": 136,
+        "deaths": 0,
+        "hospitalized": 459,
+        "lat": 25.8054,
+        "lng": 89.6362
+    },
+    {
+        "district": "Rangpur",
+        "division": "Rangpur",
+        "suspected": 438,
+        "confirmed": 146,
+        "deaths": 7,
+        "hospitalized": 366,
+        "lat": 25.7439,
+        "lng": 89.2752
+    },
+    {
+        "district": "Munshiganj",
+        "division": "Dhaka",
+        "suspected": 336,
+        "confirmed": 53,
+        "deaths": 0,
+        "hospitalized": 220,
+        "lat": 23.5422,
+        "lng": 90.5305
+    },
+    {
+        "district": "Joypurhat",
+        "division": "Rajshahi",
+        "suspected": 372,
+        "confirmed": 5,
+        "deaths": 0,
+        "hospitalized": 299,
+        "lat": 25.0968,
+        "lng": 89.0227
+    },
+    {
+        "district": "Patuakhali",
+        "division": "Barisal",
+        "suspected": 5167,
+        "confirmed": 103,
+        "deaths": 1,
+        "hospitalized": 5109,
+        "lat": 22.3596,
+        "lng": 90.329
+    },
+    {
+        "district": "Satkhira",
+        "division": "Khulna",
+        "suspected": 313,
+        "confirmed": 28,
+        "deaths": 0,
+        "hospitalized": 314,
+        "lat": 22.7185,
+        "lng": 89.0706
+    },
+    {
+        "district": "Mymensingh",
+        "division": "Mymensingh",
+        "suspected": 4391,
+        "confirmed": 675,
+        "deaths": 72,
+        "hospitalized": 4252,
+        "lat": 24.7471,
+        "lng": 90.4203
+    },
+    {
+        "district": "Pirojpur",
+        "division": "Barisal",
+        "suspected": 1373,
+        "confirmed": 158,
+        "deaths": 4,
+        "hospitalized": 1214,
+        "lat": 22.5841,
+        "lng": 89.972
+    },
+    {
+        "district": "Gaibandha",
+        "division": "Rangpur",
+        "suspected": 479,
+        "confirmed": 29,
+        "deaths": 1,
+        "hospitalized": 380,
+        "lat": 25.3288,
+        "lng": 89.528
+    },
+    {
+        "district": "Habiganj",
+        "division": "Sylhet",
+        "suspected": 901,
+        "confirmed": 153,
+        "deaths": 21,
+        "hospitalized": 840,
+        "lat": 24.389,
+        "lng": 91.4155
+    },
+    {
+        "district": "Narail",
+        "division": "Khulna",
+        "suspected": 785,
+        "confirmed": 85,
+        "deaths": 0,
+        "hospitalized": 750,
+        "lat": 23.1724,
+        "lng": 89.5126
+    },
+    {
+        "district": "Gazipur",
+        "division": "Dhaka",
+        "suspected": 2918,
+        "confirmed": 119,
+        "deaths": 5,
+        "hospitalized": 2877,
+        "lat": 24.0023,
+        "lng": 90.4264
+    },
+    {
+        "district": "Nilphamari",
+        "division": "Rangpur",
+        "suspected": 277,
+        "confirmed": 20,
+        "deaths": 0,
+        "hospitalized": 177,
+        "lat": 25.9316,
+        "lng": 88.856
+    },
+    {
+        "district": "Rajbari",
+        "division": "Dhaka",
+        "suspected": 403,
+        "confirmed": 13,
+        "deaths": 0,
+        "hospitalized": 332,
+        "lat": 23.7574,
+        "lng": 89.6445
+    },
+    {
+        "district": "Magura",
+        "division": "Khulna",
+        "suspected": 1599,
+        "confirmed": 22,
+        "deaths": 0,
+        "hospitalized": 1540,
+        "lat": 23.4873,
+        "lng": 89.42
+    }
+]

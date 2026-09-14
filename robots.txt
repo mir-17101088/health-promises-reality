@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://campaign.thedailystar.net/health-promises-reality/sitemap.xml

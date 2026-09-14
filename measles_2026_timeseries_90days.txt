@@ -1,0 +1,632 @@
+[
+    {
+        "date": "2026-06-15",
+        "suspected": 972,
+        "confirmed": 64,
+        "deaths": 4,
+        "hospitalized": 888
+    },
+    {
+        "date": "2026-06-16",
+        "suspected": 1006,
+        "confirmed": 136,
+        "deaths": 1,
+        "hospitalized": 938
+    },
+    {
+        "date": "2026-06-17",
+        "suspected": 966,
+        "confirmed": 111,
+        "deaths": 4,
+        "hospitalized": 872
+    },
+    {
+        "date": "2026-06-18",
+        "suspected": 1009,
+        "confirmed": 139,
+        "deaths": 5,
+        "hospitalized": 907
+    },
+    {
+        "date": "2026-06-19",
+        "suspected": 1078,
+        "confirmed": 96,
+        "deaths": 4,
+        "hospitalized": 972
+    },
+    {
+        "date": "2026-06-20",
+        "suspected": 807,
+        "confirmed": 80,
+        "deaths": 7,
+        "hospitalized": 746
+    },
+    {
+        "date": "2026-06-21",
+        "suspected": 1001,
+        "confirmed": 62,
+        "deaths": 3,
+        "hospitalized": 957
+    },
+    {
+        "date": "2026-06-22",
+        "suspected": 965,
+        "confirmed": 160,
+        "deaths": 3,
+        "hospitalized": 884
+    },
+    {
+        "date": "2026-06-23",
+        "suspected": 1009,
+        "confirmed": 126,
+        "deaths": 3,
+        "hospitalized": 973
+    },
+    {
+        "date": "2026-06-24",
+        "suspected": 996,
+        "confirmed": 93,
+        "deaths": 3,
+        "hospitalized": 921
+    },
+    {
+        "date": "2026-06-25",
+        "suspected": 893,
+        "confirmed": 52,
+        "deaths": 9,
+        "hospitalized": 860
+    },
+    {
+        "date": "2026-06-26",
+        "suspected": 869,
+        "confirmed": 107,
+        "deaths": 4,
+        "hospitalized": 786
+    },
+    {
+        "date": "2026-06-27",
+        "suspected": 744,
+        "confirmed": 45,
+        "deaths": 6,
+        "hospitalized": 672
+    },
+    {
+        "date": "2026-06-28",
+        "suspected": 941,
+        "confirmed": 116,
+        "deaths": 4,
+        "hospitalized": 889
+    },
+    {
+        "date": "2026-06-29",
+        "suspected": 1004,
+        "confirmed": 141,
+        "deaths": 4,
+        "hospitalized": 962
+    },
+    {
+        "date": "2026-06-30",
+        "suspected": 866,
+        "confirmed": 114,
+        "deaths": 2,
+        "hospitalized": 821
+    },
+    {
+        "date": "2026-07-01",
+        "suspected": 951,
+        "confirmed": 167,
+        "deaths": 1,
+        "hospitalized": 882
+    },
+    {
+        "date": "2026-07-02",
+        "suspected": 965,
+        "confirmed": 154,
+        "deaths": 5,
+        "hospitalized": 902
+    },
+    {
+        "date": "2026-07-03",
+        "suspected": 968,
+        "confirmed": 139,
+        "deaths": 5,
+        "hospitalized": 851
+    },
+    {
+        "date": "2026-07-04",
+        "suspected": 732,
+        "confirmed": 101,
+        "deaths": 2,
+        "hospitalized": 704
+    },
+    {
+        "date": "2026-07-05",
+        "suspected": 925,
+        "confirmed": 106,
+        "deaths": 7,
+        "hospitalized": 878
+    },
+    {
+        "date": "2026-07-06",
+        "suspected": 947,
+        "confirmed": 159,
+        "deaths": 3,
+        "hospitalized": 890
+    },
+    {
+        "date": "2026-07-07",
+        "suspected": 819,
+        "confirmed": 173,
+        "deaths": 1,
+        "hospitalized": 788
+    },
+    {
+        "date": "2026-07-08",
+        "suspected": 796,
+        "confirmed": 106,
+        "deaths": 3,
+        "hospitalized": 748
+    },
+    {
+        "date": "2026-07-09",
+        "suspected": 818,
+        "confirmed": 128,
+        "deaths": 2,
+        "hospitalized": 761
+    },
+    {
+        "date": "2026-07-10",
+        "suspected": 901,
+        "confirmed": 128,
+        "deaths": 3,
+        "hospitalized": 800
+    },
+    {
+        "date": "2026-07-11",
+        "suspected": 702,
+        "confirmed": 84,
+        "deaths": 3,
+        "hospitalized": 660
+    },
+    {
+        "date": "2026-07-12",
+        "suspected": 879,
+        "confirmed": 90,
+        "deaths": 5,
+        "hospitalized": 849
+    },
+    {
+        "date": "2026-07-13",
+        "suspected": 896,
+        "confirmed": 113,
+        "deaths": 1,
+        "hospitalized": 856
+    },
+    {
+        "date": "2026-07-14",
+        "suspected": 868,
+        "confirmed": 122,
+        "deaths": 7,
+        "hospitalized": 831
+    },
+    {
+        "date": "2026-07-15",
+        "suspected": 920,
+        "confirmed": 172,
+        "deaths": 5,
+        "hospitalized": 851
+    },
+    {
+        "date": "2026-07-16",
+        "suspected": 974,
+        "confirmed": 197,
+        "deaths": 8,
+        "hospitalized": 941
+    },
+    {
+        "date": "2026-07-17",
+        "suspected": 873,
+        "confirmed": 140,
+        "deaths": 1,
+        "hospitalized": 781
+    },
+    {
+        "date": "2026-07-18",
+        "suspected": 699,
+        "confirmed": 74,
+        "deaths": 4,
+        "hospitalized": 649
+    },
+    {
+        "date": "2026-07-19",
+        "suspected": 938,
+        "confirmed": 113,
+        "deaths": 4,
+        "hospitalized": 888
+    },
+    {
+        "date": "2026-07-20",
+        "suspected": 922,
+        "confirmed": 147,
+        "deaths": 5,
+        "hospitalized": 889
+    },
+    {
+        "date": "2026-07-21",
+        "suspected": 878,
+        "confirmed": 130,
+        "deaths": 4,
+        "hospitalized": 1218
+    },
+    {
+        "date": "2026-07-22",
+        "suspected": 904,
+        "confirmed": 133,
+        "deaths": 6,
+        "hospitalized": 834
+    },
+    {
+        "date": "2026-07-23",
+        "suspected": 848,
+        "confirmed": 166,
+        "deaths": 2,
+        "hospitalized": 785
+    },
+    {
+        "date": "2026-07-24",
+        "suspected": 950,
+        "confirmed": 187,
+        "deaths": 5,
+        "hospitalized": 854
+    },
+    {
+        "date": "2026-07-25",
+        "suspected": 613,
+        "confirmed": 78,
+        "deaths": 6,
+        "hospitalized": 581
+    },
+    {
+        "date": "2026-07-26",
+        "suspected": 990,
+        "confirmed": 170,
+        "deaths": 4,
+        "hospitalized": 941
+    },
+    {
+        "date": "2026-07-27",
+        "suspected": 992,
+        "confirmed": 113,
+        "deaths": 5,
+        "hospitalized": 1415
+    },
+    {
+        "date": "2026-07-28",
+        "suspected": 799,
+        "confirmed": 105,
+        "deaths": 3,
+        "hospitalized": 787
+    },
+    {
+        "date": "2026-07-29",
+        "suspected": 996,
+        "confirmed": 79,
+        "deaths": 3,
+        "hospitalized": 925
+    },
+    {
+        "date": "2026-07-30",
+        "suspected": 870,
+        "confirmed": 135,
+        "deaths": 4,
+        "hospitalized": 816
+    },
+    {
+        "date": "2026-07-31",
+        "suspected": 900,
+        "confirmed": 185,
+        "deaths": 2,
+        "hospitalized": 805
+    },
+    {
+        "date": "2026-08-01",
+        "suspected": 751,
+        "confirmed": 121,
+        "deaths": 3,
+        "hospitalized": 687
+    },
+    {
+        "date": "2026-08-02",
+        "suspected": 1022,
+        "confirmed": 115,
+        "deaths": 4,
+        "hospitalized": 946
+    },
+    {
+        "date": "2026-08-03",
+        "suspected": 967,
+        "confirmed": 113,
+        "deaths": 3,
+        "hospitalized": 908
+    },
+    {
+        "date": "2026-08-04",
+        "suspected": 896,
+        "confirmed": 123,
+        "deaths": 2,
+        "hospitalized": 865
+    },
+    {
+        "date": "2026-08-05",
+        "suspected": 959,
+        "confirmed": 124,
+        "deaths": 5,
+        "hospitalized": 841
+    },
+    {
+        "date": "2026-08-06",
+        "suspected": 733,
+        "confirmed": 85,
+        "deaths": 6,
+        "hospitalized": 645
+    },
+    {
+        "date": "2026-08-07",
+        "suspected": 1017,
+        "confirmed": 201,
+        "deaths": 3,
+        "hospitalized": 943
+    },
+    {
+        "date": "2026-08-08",
+        "suspected": 677,
+        "confirmed": 99,
+        "deaths": 4,
+        "hospitalized": 622
+    },
+    {
+        "date": "2026-08-09",
+        "suspected": 988,
+        "confirmed": 75,
+        "deaths": 6,
+        "hospitalized": 938
+    },
+    {
+        "date": "2026-08-10",
+        "suspected": 992,
+        "confirmed": 163,
+        "deaths": 5,
+        "hospitalized": 940
+    },
+    {
+        "date": "2026-08-11",
+        "suspected": 872,
+        "confirmed": 107,
+        "deaths": 2,
+        "hospitalized": 812
+    },
+    {
+        "date": "2026-08-12",
+        "suspected": 941,
+        "confirmed": 84,
+        "deaths": 5,
+        "hospitalized": 879
+    },
+    {
+        "date": "2026-08-13",
+        "suspected": 951,
+        "confirmed": 74,
+        "deaths": 5,
+        "hospitalized": 895
+    },
+    {
+        "date": "2026-08-14",
+        "suspected": 972,
+        "confirmed": 187,
+        "deaths": 4,
+        "hospitalized": 886
+    },
+    {
+        "date": "2026-08-15",
+        "suspected": 728,
+        "confirmed": 70,
+        "deaths": 8,
+        "hospitalized": 700
+    },
+    {
+        "date": "2026-08-16",
+        "suspected": 1021,
+        "confirmed": 80,
+        "deaths": 6,
+        "hospitalized": 963
+    },
+    {
+        "date": "2026-08-17",
+        "suspected": 981,
+        "confirmed": 50,
+        "deaths": 7,
+        "hospitalized": 929
+    },
+    {
+        "date": "2026-08-18",
+        "suspected": 1002,
+        "confirmed": 59,
+        "deaths": 3,
+        "hospitalized": 903
+    },
+    {
+        "date": "2026-08-19",
+        "suspected": 931,
+        "confirmed": 87,
+        "deaths": 4,
+        "hospitalized": 787
+    },
+    {
+        "date": "2026-08-20",
+        "suspected": 1004,
+        "confirmed": 68,
+        "deaths": 3,
+        "hospitalized": 950
+    },
+    {
+        "date": "2026-08-21",
+        "suspected": 876,
+        "confirmed": 64,
+        "deaths": 3,
+        "hospitalized": 799
+    },
+    {
+        "date": "2026-08-22",
+        "suspected": 815,
+        "confirmed": 65,
+        "deaths": 2,
+        "hospitalized": 758
+    },
+    {
+        "date": "2026-08-23",
+        "suspected": 1097,
+        "confirmed": 131,
+        "deaths": 3,
+        "hospitalized": 1026
+    },
+    {
+        "date": "2026-08-24",
+        "suspected": 1149,
+        "confirmed": 83,
+        "deaths": 5,
+        "hospitalized": 1055
+    },
+    {
+        "date": "2026-08-25",
+        "suspected": 986,
+        "confirmed": 91,
+        "deaths": 5,
+        "hospitalized": 890
+    },
+    {
+        "date": "2026-08-26",
+        "suspected": 1098,
+        "confirmed": 73,
+        "deaths": 7,
+        "hospitalized": 1019
+    },
+    {
+        "date": "2026-08-27",
+        "suspected": 956,
+        "confirmed": 75,
+        "deaths": 5,
+        "hospitalized": 864
+    },
+    {
+        "date": "2026-08-28",
+        "suspected": 1100,
+        "confirmed": 70,
+        "deaths": 5,
+        "hospitalized": 1036
+    },
+    {
+        "date": "2026-08-29",
+        "suspected": 886,
+        "confirmed": 57,
+        "deaths": 3,
+        "hospitalized": 784
+    },
+    {
+        "date": "2026-08-30",
+        "suspected": 1151,
+        "confirmed": 365,
+        "deaths": 4,
+        "hospitalized": 1090
+    },
+    {
+        "date": "2026-08-31",
+        "suspected": 1162,
+        "confirmed": 94,
+        "deaths": 6,
+        "hospitalized": 1098
+    },
+    {
+        "date": "2026-09-01",
+        "suspected": 1159,
+        "confirmed": 72,
+        "deaths": 6,
+        "hospitalized": 1074
+    },
+    {
+        "date": "2026-09-02",
+        "suspected": 1034,
+        "confirmed": 63,
+        "deaths": 4,
+        "hospitalized": 953
+    },
+    {
+        "date": "2026-09-03",
+        "suspected": 964,
+        "confirmed": 80,
+        "deaths": 3,
+        "hospitalized": 977
+    },
+    {
+        "date": "2026-09-04",
+        "suspected": 1114,
+        "confirmed": 40,
+        "deaths": 1,
+        "hospitalized": 1004
+    },
+    {
+        "date": "2026-09-05",
+        "suspected": 843,
+        "confirmed": 74,
+        "deaths": 4,
+        "hospitalized": 761
+    },
+    {
+        "date": "2026-09-06",
+        "suspected": 1043,
+        "confirmed": 55,
+        "deaths": 3,
+        "hospitalized": 954
+    },
+    {
+        "date": "2026-09-07",
+        "suspected": 1156,
+        "confirmed": 60,
+        "deaths": 3,
+        "hospitalized": 1102
+    },
+    {
+        "date": "2026-09-08",
+        "suspected": 1157,
+        "confirmed": 79,
+        "deaths": 2,
+        "hospitalized": 1089
+    },
+    {
+        "date": "2026-09-09",
+        "suspected": 1119,
+        "confirmed": 69,
+        "deaths": 3,
+        "hospitalized": 1034
+    },
+    {
+        "date": "2026-09-10",
+        "suspected": 1165,
+        "confirmed": 29,
+        "deaths": 7,
+        "hospitalized": 1112
+    },
+    {
+        "date": "2026-09-11",
+        "suspected": 1077,
+        "confirmed": 34,
+        "deaths": 3,
+        "hospitalized": 966
+    },
+    {
+        "date": "2026-09-12",
+        "suspected": 816,
+        "confirmed": 39,
+        "deaths": 7,
+        "hospitalized": 731
+    }
+]
