@@ -1,9 +1,8 @@
 # 180 Days — Health Promises vs Reality
 
-A static, scroll-driven visual report for **The Daily Star** on the government's
-first 180 days in health (17 Feb – 16 Aug 2026). This folder is a **self-contained
-static site** — no build step, no server code, no dependencies to install. Push it
-to GitHub and deploy on Vercel as-is.
+A scroll-driven visual report for **The Daily Star** on the government's first 180 days in
+health (17 Feb – 16 Aug 2026). Plain static files plus a tiny, dependency-free build step that
+Vercel runs automatically.
 
 **Production URL:** `https://campaign.thedailystar.net/health-promises-reality/`
 
@@ -11,12 +10,11 @@ to GitHub and deploy on Vercel as-is.
 
 ## Deploy
 
-### Option A — Vercel dashboard (no CLI)
-1. Create a new GitHub repo and upload the **contents of this folder** to its root
-   (so `index.html` sits at the repo root, not inside a subfolder).
-2. In Vercel: **Add New → Project → Import** the repo.
-3. Framework preset: **Other**. Build command: **none**. Output directory: **`.`** (root).
-4. Deploy. `vercel.json` handles caching headers and clean URLs automatically.
+### Option A — Vercel dashboard
+1. Push the **contents of this folder** to a GitHub repo (so `index.html` sits at the repo root).
+2. In Vercel: **Add New → Project → Import** the repo. Leave the build settings alone:
+   `vercel.json` already sets **Build command** `node tools/build.mjs` and **Output directory** `dist`.
+3. Deploy. Every later push rebuilds and redeploys.
 
 ### Option B — Vercel CLI
 ```bash
@@ -25,94 +23,123 @@ cd health-promises-reality
 vercel --prod
 ```
 
-### Serving under the `/health-promises-reality/` path
-Every asset is referenced with **relative** paths (`./assets/…`), so the site works
-correctly whether it is served from a domain root (e.g. the Vercel preview URL) or
-from the `/health-promises-reality/` sub-path behind The Daily Star's reverse proxy.
-No path rewriting is required. The canonical URL and social tags already point to the
-production sub-path.
+### Local preview
+```bash
+python -m http.server 4180          # edit-and-refresh preview of the source files
+node tools/build.mjs                # production build into ./dist
+npx serve dist -l 4190              # preview exactly what Vercel serves (gzip on)
+```
+
+No `npm install` is needed. `tools/build.mjs` uses only Node's standard library (Node 18+).
+
+---
+
+## Why a normal refresh now shows a new deploy
+
+Previously CSS and JS were cached by browsers for 7 days, and images for a year as `immutable`,
+under file names that never changed. A new deploy updated the HTML, but browsers kept using the
+old CSS/JS until a hard refresh.
+
+Now:
+
+- `tools/build.mjs` stamps every local asset URL with a content hash, e.g.
+  `./assets/app.js?v=2a5791fbfc`. When a file changes, its URL changes. That includes files
+  referenced from other files (`app.js` → `outbreak.js` → the measles `.txt` data).
+- `vercel.json` caches **stamped URLs for a year** (`immutable`) and makes **everything else,
+  including the HTML, revalidate on every visit** (`max-age=0, must-revalidate`).
+
+So each refresh checks the HTML (a cheap 304 when unchanged). New HTML points to new asset URLs,
+while unchanged assets are still served from the browser cache. Nothing needs to be renamed by
+hand.
+
+If the page is also cached by The Daily Star's reverse proxy at `campaign.thedailystar.net`, that
+proxy should respect the origin's `Cache-Control` headers (or have a short TTL for `.../` and
+`index.html`) for the same behaviour there.
 
 ---
 
 ## Lighthouse
 
-Measured with Lighthouse (Chrome), served with gzip + the caching headers in
-`vercel.json` (i.e. representative of production):
+Lighthouse 13.4.1, Chrome, simulated throttling, against the production build (`dist`, gzip).
+Reports: `../lighthouse-reports/lighthouse-*-2026-09-16.html`.
 
 | | Performance | Accessibility | Best Practices | SEO |
 |---|:---:|:---:|:---:|:---:|
 | **Desktop** | **100** | **100** | **100** | **100** |
-| **Mobile**  | **94**  | **100** | **100** | **100** |
+| **Mobile**  | **99**  | **100** | **100** | **100** |
 
-Core Web Vitals (mobile, simulated Slow 4G): **LCP ≈ 2.9 s · CLS 0 · TBT ≈ 0 ms.**
-On Vercel's edge network (HTTP/2, Brotli, global CDN) real-world numbers are typically
-better than this local measurement.
+Mobile Core Web Vitals: **LCP 1.9 s · TBT 20 ms · CLS 0.015 · Speed Index 1.1 s**
+(previous build: Performance 94, LCP 2.8 s).
+
+The local run flags "cache lifetimes" only because the local server does not send the
+`vercel.json` headers; production does.
 
 ---
 
 ## What was optimised
 
-This started as a Claude Design canvas file (`.dc.html`) that rendered entirely in the
-browser via React + a canvas runtime (~250 KB of framework JS, and **no content in the
-initial HTML** — bad for both speed and SEO). It was converted to a hand-tuned static site:
-
-- **Pre-rendered to static HTML.** All copy, 29 inline SVG charts, and the district
-  choropleth are baked into `index.html`. The React/canvas runtime (`react`, `react-dom`,
-  `support.js`, `image-slot.js`) and the 273 KB `bd_divisions.js` geometry file were removed.
-  The page now renders its full story even with JavaScript disabled.
-- **Hero image:** 8.2 MB JPEG → responsive WebP set (37–172 KB) + a JPEG fallback,
-  preloaded with `fetchpriority="high"`. This is the LCP element.
-- **Map geometry** simplified with Douglas–Peucker (choropleth SVG 274 KB → 144 KB,
-  visually identical at display size).
-- **Fonts** self-hosted and **subsetted** to the 105 glyphs actually used
-  (275 KB → 170 KB), `font-display: swap`, critical subset preloaded.
-- **JavaScript** is tiny and deferred. Only ~8 KB (`editorial.js` + `app.js`) loads up
-  front; **Leaflet + the map/chart code (~165 KB) lazy-load** only as the reader nears them.
-- **CSS** combined into one minified file, with critical CSS inlined in `<head>`.
-- Explicit `width`/`height` on every image (CLS = 0); long-cache headers for static assets.
-- **Full SEO:** title, meta description, canonical, Open Graph + Twitter cards,
-  JSON-LD `NewsArticle`, `robots.txt`, `sitemap.xml`, and a 1200×630 share card
-  (`assets/og-cover.jpg`).
+- **Pre-rendered static HTML.** Full story, charts and numbers render with JavaScript off.
+- **No render-blocking requests.** The build inlines the stylesheet and `@font-face` rules
+  into `index.html`.
+- **HTML weight cut from 80 KB to 28 KB gzipped (source).** The 144 KB inline division map is now
+  `assets/images/measles-gap-map.svg`, compressed with SVGO to 68 KB and lazy-loaded. 61 leftover
+  wrapper `<span>`s from the design-tool export were removed.
+- **Fonts 173 KB → 41 KB.** Source Serif 4 is only used at regular weight for quotes, so its two
+  variable files were pinned to static instances (84 KB → 13 KB, 72 KB → 11 KB). Glyph coverage is
+  unchanged. Only the Libre Franklin file used above the fold is preloaded.
+- **Less rendering work on phones.** Off-screen chapters use `content-visibility: auto`, so the
+  browser skips their style and layout until the reader approaches them.
+- **Hero image** stays a responsive WebP set, preloaded with `fetchpriority="high"`; no async
+  decode on the LCP image.
+- Removed a map-tile `preconnect` that was never reused.
+- JavaScript stays small and deferred; Leaflet and the outbreak map lazy-load near the map.
+- **SEO:** title and meta description sized for search results, canonical, Open Graph and Twitter
+  cards, `NewsArticle` JSON-LD with image and logo objects, `robots.txt`, `sitemap.xml`, 1200×630
+  share card.
 
 ---
 
 ## Structure
 
 ```
-index.html                     The whole story (pre-rendered, content inline)
-vercel.json                    Caching headers + clean URLs
+index.html                     The whole story (source; pre-rendered content)
+vercel.json                    Build command, output dir, cache headers
+tools/build.mjs                Production build: copy public files, inline CSS, hash-stamp URLs
+dist/                          Build output (generated, git-ignored)
 robots.txt · sitemap.xml       SEO
 favicon.ico · assets/favicon.svg · assets/apple-touch-icon.png
-measles_2026_geolocations.txt      map data  (fetched at runtime from site root)
-measles_2026_timeseries_90days.txt trend data (fetched at runtime from site root)
+measles_2026_geolocations.txt      map data  (fetched at runtime)
+measles_2026_timeseries_90days.txt trend data (fetched at runtime)
 assets/
-  styles.min.css               combined + minified page styles
-  app.js                        scroll-reveal, statement archive, lazy map loader
+  styles.min.css               page styles (inlined into dist/index.html by the build)
+  app.js                        scroll reveal, statement archive, scorecard board, map loader
   editorial.js                  chapter nav scroll-spy, galleries, back-to-top
   outbreak.js · outbreak.css    Leaflet map + daily-trend web components (lazy)
   og-cover.jpg                  1200×630 social share card
   fonts/                        self-hosted, subsetted woff2 + @font-face
-  images/                       portraits, hero/ (responsive WebP), web/ (gallery WebP)
+  images/                       portraits, hero/ (responsive WebP), web/ (gallery WebP), map SVG
   social/ · thedailystar-logo.svg
   vendor/leaflet/               Leaflet library (BSD-2, see LICENSE)
 ```
 
-### Note on the data files
-`outbreak.js` fetches `measles_2026_geolocations.txt` and
-`measles_2026_timeseries_90days.txt` from the **site root** at runtime. Keep them at the
-deployment root (next to `index.html`). If the site is served from a sub-path, they must
-resolve at that sub-path root — which the relative loader handles automatically.
-
-### The map uses OpenStreetMap tiles
-The interactive district map loads tiles from `tile.openstreetmap.org` (attributed
-in-map). This is the only third-party runtime request; everything else is self-hosted.
+Only the files listed in `PUBLIC` at the top of `tools/build.mjs` are deployed.
+`health_service_180_days_plan.csv`, `og-image.webp` (unused), notes and tools stay out of `dist`.
 
 ---
 
 ## Editing content
-The story text lives directly in `index.html`. The minister's dated statements (the
-"In his own words" archive) are a small JSON block near the end of `index.html`
-(`<script id="minister-data" type="application/json">`) — edit there to change that
-section. The map and trend numbers come from the two root-level `.txt` data files.
+
+- Story text lives in `index.html`. Edit it, push, and the build handles cache-busting.
+- **The scorecard section ("What the scorecard records")** is the block between
+  `<!--pa:start-->` and `<!--pa:end-->` in `index.html`. Its styles are the
+  `/*pa:start*/ … /*pa:end*/` block at the end of `assets/styles.min.css`, and its sticky-board
+  script is the matching block at the end of `assets/app.js`. Each of the 12 commitments is an
+  `<article class="pa-file">` with the same parts: the pledge, the 180-day target, what the
+  scorecard reports (dashed, government register) and what that means. The stage (`data-stage`
+  = `paper` / `underway` / `done`) must match the tally at the top and the board rail (`--f` =
+  `0` / `.5` / `1`).
+- The minister's dated statements are the JSON block `<script id="minister-data">` near the end
+  of `index.html`.
+- The map and trend numbers come from the two root-level `.txt` data files.
 
 Photography: Mehedi Hasan, Orchid Chakma. © 2026 The Daily Star.
