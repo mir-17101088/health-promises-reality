@@ -3,13 +3,13 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://campaign.thedailystar.net/health-promises-reality/</loc>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://campaign.thedailystar.net/health-promises-reality/assets/og-cover.jpg</image:loc>
       <image:title>180 Days of Health Promises vs Reality | The Daily Star</image:title>
-      <image:caption>180 days of health promises. One missing word: measles. An interactive investigation by The Daily Star, designed and developed by Mir Rownak.</image:caption>
+      <image:caption>180 days of health promises. One missing word: measles. An interactive visual story by The Daily Star, designed and developed by Mir Rownak.</image:caption>
     </image:image>
   </url>
 </urlset>
