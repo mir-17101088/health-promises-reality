@@ -1,32 +1,29 @@
 #!/usr/bin/env node
 /**
- * Production build for the 180 Days microsite. Zero dependencies, Node 18+.
+ * Prepares this folder for production, in place. Zero dependencies, Node 18+.
  *
- *   node tools/build.mjs      writes ./dist (Vercel runs this on every deploy, see vercel.json)
+ *   node tools/build.mjs           update index.html and the asset links in this folder
+ *   node tools/build.mjs --check   change nothing; exit with an error if anything is out of date
  *
- * 1. Copies only the public files into dist/. Notes, tools and source spreadsheets stay out.
- * 2. Inlines the stylesheets linked from index.html, removing render-blocking requests.
- * 3. Stamps every local asset URL with ?v=<content hash>. vercel.json caches stamped URLs for a
- *    year and makes unstamped responses (the HTML) revalidate on every visit, so a normal refresh
- *    always shows the latest deploy while unchanged files stay cached.
+ * This folder IS the website. It deploys to Vercel as-is and can be copied unchanged into
+ * campaign.thedailystar.net/health-promises-reality/. Run the build after editing any CSS, JS,
+ * image, font or data file, then upload the updated folder.
+ *
+ * 1. Inlines assets/fonts/fonts.css and assets/styles.min.css into index.html, so the page renders
+ *    without waiting for extra requests. Edit those files, never the generated
+ *    <style data-inline> blocks.
+ * 2. Stamps every local asset URL with ?v=<content hash>. vercel.json and .htaccess cache stamped
+ *    URLs for a year and revalidate everything else (the HTML) on every visit, so a normal refresh
+ *    shows a new upload while unchanged files stay cached.
  */
 import { createHash } from "node:crypto";
-import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, posix, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const DIST = join(ROOT, "dist");
-const PUBLIC = [
-  "index.html",
-  "favicon.ico",
-  "robots.txt",
-  "sitemap.xml",
-  "measles_2026_geolocations.txt",
-  "measles_2026_timeseries_90days.txt",
-  "assets",
-];
+const CHECK = process.argv.includes("--check");
 // Text files whose asset references are stamped. Vendor scripts are left untouched.
 const STAMPED = [
   "assets/vendor/leaflet/leaflet.css",
@@ -37,43 +34,56 @@ const STAMPED = [
   "index.html",
 ];
 
-const read = (p) => readFileSync(join(DIST, p), "utf8");
-const write = (p, s) => writeFileSync(join(DIST, p), s);
-const isFile = (p) => existsSync(join(DIST, p)) && statSync(join(DIST, p)).isFile();
-const hash = (p) => createHash("sha256").update(readFileSync(join(DIST, p))).digest("hex").slice(0, 10);
+// Updated text is held in memory, then written (or, with --check, only compared) at the end.
+const pending = new Map();
+const onDisk = (p) => readFileSync(join(ROOT, p), "utf8");
+const read = (p) => (pending.has(p) ? pending.get(p) : onDisk(p));
+const update = (p, text) => {
+  if (text !== read(p)) pending.set(p, text);
+};
+const isFile = (p) => existsSync(join(ROOT, p)) && statSync(join(ROOT, p)).isFile();
+const hash = (p) =>
+  createHash("sha256")
+    .update(pending.has(p) ? Buffer.from(pending.get(p)) : readFileSync(join(ROOT, p)))
+    .digest("hex")
+    .slice(0, 10);
 
-// 1. Copy public files. Empty dist/ rather than deleting it: Windows refuses to remove a folder
-//    that a terminal or Explorer window has open.
-mkdirSync(DIST, { recursive: true });
-for (const entry of readdirSync(DIST)) rmSync(join(DIST, entry), { recursive: true, force: true });
-for (const p of PUBLIC) {
-  if (!existsSync(join(ROOT, p))) throw new Error(`missing public file: ${p}`);
-  cpSync(join(ROOT, p), join(DIST, p), { recursive: true });
-}
-
-// 2. Inline local stylesheets, rewriting their url() references to be relative to the page.
-let html = read("index.html");
+// 1. Inline stylesheets: <link> tags on the first run, existing <style data-inline> blocks after.
 let inlined = 0;
-html = html.replace(/<link\b[^>]*>/g, (tag) => {
-  if (!/\brel=["']?stylesheet\b/.test(tag)) return tag;
-  const href = tag.match(/\bhref=["']?\.\/(assets\/[^"'\s>?]+\.css)/);
-  if (!href || !isFile(href[1])) return tag;
-  const dir = posix.dirname(href[1]);
-  const css = read(href[1]).replace(
-    /url\((['"]?)(?!data:|https?:|\/|#)([^'")]+)\1\)/g,
-    (_, q, url) => `url(./${posix.normalize(posix.join(dir, url))})`,
-  );
-  inlined++;
-  return `<style>${css.trim()}</style>`;
-});
-write("index.html", html);
+update(
+  "index.html",
+  read("index.html").replace(
+    /<link\b[^>]*>|<style data-inline="([^"?]+)(?:\?v=[0-9a-f]{10})?">[\s\S]*?<\/style>/g,
+    (tag, from) => {
+      let file = from;
+      if (!file) {
+        const href = /\brel=["']?stylesheet\b/.test(tag) && tag.match(/\bhref=["']?\.\/(assets\/[^"'\s>?]+\.css)/);
+        if (!href) return tag;
+        file = href[1];
+      }
+      if (!isFile(file)) throw new Error(`stylesheet not found: ${file}`);
+      const dir = posix.dirname(file);
+      const css = onDisk(file)
+        .trim()
+        .replace(
+          /url\((['"]?)(?!data:|https?:|\/|#)([^'")?]+)\1\)/g,
+          (_, q, url) => `url(./${posix.normalize(posix.join(dir, url))})`,
+        );
+      inlined++;
+      return `<style data-inline="${file}">${css}</style>`;
+    },
+  ),
+);
 
-// 3. Stamp asset URLs with content hashes. Repeat until stable, because stamping a file changes
+// 2. Stamp asset URLs with content hashes. Repeat until stable, because stamping a file changes
 //    its own hash, which the files referencing it must then pick up.
 const EXT = "css|js|json|txt|webp|avif|jpe?g|png|gif|svg|ico|woff2?";
 // A path starts with a word character (so "a.webp 960w, ./b.webp" yields two refs) and may contain
 // spaces, which some portrait file names do.
-const REF = new RegExp(String.raw`(^|[\s"'(,=\x60])((?:\./)?[\w-][\w\-./ ]*?\.(?:${EXT}))(\?v=[0-9a-f]{10})?(?=[\s"'),#\x60]|$)`, "gm");
+const REF = new RegExp(
+  String.raw`(^|[\s"'(,=\x60])((?:\./)?[\w-][\w\-./ ]*?\.(?:${EXT}))(\?v=[0-9a-f]{10})?(?=[\s"'),#\x60]|$)`,
+  "gm",
+);
 
 function candidates(file, path) {
   const clean = path.replace(/^\.\//, "");
@@ -89,21 +99,31 @@ for (let changed = true; changed; ) {
   changed = false;
   for (const file of STAMPED) {
     if (!isFile(file)) continue;
-    const src = read(file);
-    const out = src.replace(REF, (all, lead, path) => {
+    const before = read(file);
+    const after = before.replace(REF, (all, lead, path) => {
       const hit = candidates(file, path).find(isFile);
       return hit && hit !== file ? `${lead}${path}?v=${hash(hit)}` : all;
     });
-    if (out !== src) {
-      write(file, out);
+    if (after !== before) {
+      update(file, after);
       changed = true;
     }
   }
 }
 
-const page = readFileSync(join(DIST, "index.html"));
-const stamped = (read("index.html").match(/\?v=[0-9a-f]{10}/g) || []).length;
-console.log(
-  `dist ready: ${inlined} stylesheet(s) inlined, ${stamped} stamped URLs in index.html, ` +
-    `index.html ${(page.length / 1024).toFixed(1)} KB (${(gzipSync(page).length / 1024).toFixed(1)} KB gzip), ${passes} pass(es)`,
-);
+const changed = [...pending.keys()].filter((p) => pending.get(p) !== onDisk(p));
+const page = Buffer.from(read("index.html"));
+const stats =
+  `index.html ${(page.length / 1024).toFixed(1)} KB (${(gzipSync(page).length / 1024).toFixed(1)} KB gzip), ` +
+  `${inlined} stylesheet(s) inlined`;
+
+if (CHECK) {
+  if (changed.length) {
+    console.error(`Out of date: ${changed.join(", ")}\nRun "node tools/build.mjs", then upload the updated files.`);
+    process.exit(1);
+  }
+  console.log(`Up to date. ${stats}`);
+} else {
+  for (const p of changed) writeFileSync(join(ROOT, p), pending.get(p));
+  console.log(`${changed.length ? `Updated ${changed.join(", ")}` : "Already up to date"}. ${stats}`);
+}
