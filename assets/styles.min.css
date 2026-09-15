@@ -5,3 +5,17 @@ html{scroll-behavior:smooth;scroll-padding-top:90px;scrollbar-gutter:stable;scro
 @media(min-width:761px){.promise-margin{border-left:2px solid #e6b48f59;padding-left:24px;text-align:left}.promise-margin .eyebrow{display:block;color:#e6b48f;text-transform:uppercase;letter-spacing:.2em;font-weight:600;font-size:11px;line-height:1.5}.promise-margin p{text-align:left;margin:14px 0 0;max-width:14ch;font-family:var(--serif);font-weight:400;font-size:clamp(25px,2.5vw,32px);line-height:1.2;color:var(--ink)}}
 
 @media(hover:none){.read-link:hover span{transform:none}.back-to-top:hover{transform:none}}
+/* === Hero: tall scrolling canvas + split lede · book-overlay back-to-top (added) === */
+.story-hero{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:0!important;padding:24px clamp(22px,5.5vw,90px) 0!important;background:#141614}
+.story-hero .hero-photo{opacity:.82;filter:saturate(.72);object-position:60% 42%}
+.hero-shade{background:linear-gradient(180deg,#10140fe6 0%,#10140fa6 18%,#10140f5c 40%,#10140f52 58%,#10140fb0 78%,#10140fe6 92%,#191a19 100%)}
+.hero-panel{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%}
+.hero-panel--intro{min-height:calc(100svh - 90px);padding:20px 0 44px}
+.hero-panel--follow{min-height:66svh;padding:6svh 0 10svh}
+.hero-panel .hero-copy{max-width:1000px;width:100%;margin:auto}
+.hero-follow{max-width:1000px;width:100%;margin:auto}
+.hero-follow p{max-width:62ch;margin:0 auto;font-size:clamp(18px,1.65vw,22px);line-height:1.8;color:#eeeae1;text-align:center;text-wrap:pretty}
+.hero-scroll-cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:1;color:#f1bd9d;line-height:0;opacity:.85}
+@media(prefers-reduced-motion:no-preference){.hero-scroll-cue svg{animation:hero-cue 1.9s ease-in-out infinite}@keyframes hero-cue{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:1}}}
+@media(max-width:760px){.story-hero .hero-photo{object-position:66% 43%}.hero-panel--follow{min-height:56svh}#story:has(.archive-overlay) .back-to-top{display:none!important}}
+@media(max-width:600px){.hero-panel--intro{min-height:calc(100svh - 78px)}.hero-panel--follow{min-height:52svh}.hero-follow p{font-size:16px;max-width:34ch}.story-hero .hero-photo{object-position:68% 44%}}
