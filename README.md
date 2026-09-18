@@ -136,7 +136,7 @@ measles_2026_geolocations.txt      map data  (fetched at runtime)
 measles_2026_timeseries_90days.txt trend data (fetched at runtime)
 assets/
   styles.min.css               page styles (source for the inline block in index.html)
-  app.js                        scroll reveal, statement archive, scorecard board, map loader
+  app.js                        scroll reveal, statement archive, promise carousel, map loader
   editorial.js                  chapter nav scroll-spy, galleries, back-to-top
   outbreak.js · outbreak.css    Leaflet map + daily-trend web components (lazy)
   og-cover.jpg                  1200×630 social share card
@@ -151,12 +151,14 @@ assets/
 - Story text lives in `index.html`.
 - **The scorecard section ("What the scorecard records")** is the block between
   `<!--pa:start-->` and `<!--pa:end-->` in `index.html`. Its styles are the `/*pa:start*/ … /*pa:end*/`
-  block in `assets/styles.min.css` (run the build after editing), and its sticky-board script is
+  block in `assets/styles.min.css` (run the build after editing), and its horizontal-carousel script is
   the matching block at the end of `assets/app.js`. Each of the 12 commitments is an
-  `<article class="pa-file">` with the same parts: the pledge, the 180-day target, what the
-  scorecard reports (dashed, government register) and what that means. The stage (`data-stage` =
-  `paper` / `underway` / `done`) must match the tally at the top and the board rail
-  (`--f` = `0` / `.5` / `1`).
+  `<article class="pa-file pa-compact">` with a short promise, 180-day target and reported result.
+  CSS subgrid shares row sizes across all 12 cards, so changing slides never changes the carousel height.
+  Original evidence lives in the `promise-detail-0` through `promise-detail-11` templates and opens
+  in a native dialog through “Read full record”. Keep the summary and its full record consistent
+  when updating content. The stage (`data-stage` = `paper` / `underway` / `done`) must match the
+  tally and status rail (`--f` = `0` / `.5` / `1`).
 - The minister's dated statements are the JSON block `<script id="minister-data">` near the end of
   `index.html`.
 - The map and trend numbers come from the two root-level `.txt` data files.
